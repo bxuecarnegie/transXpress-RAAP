@@ -26,5 +26,8 @@ strand_specific: ""
 annotated_fasta_prefix: ""
 
 # For pfam, rfam, and blast searches
-e_value_threshold: "1e-6"
+e_value_threshold: "1e-5"
+
+# ExN50 threshold
+ex_threshold: "90"
 

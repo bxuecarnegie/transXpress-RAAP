@@ -162,7 +162,7 @@ rule trinity_inchworm_chrysalis:
   log:
     "logs/trinity_inchworm_chrysalis.log"
   params:
-    memory="200"
+    memory="120"
   threads:
     16
   shell:
@@ -219,7 +219,7 @@ rule trinity_butterfly_parallel_merge:
   log:
     "logs/trinity_butterfly_parallel_merge.log"
   params:
-    memory="10"
+    memory="120"
   threads:
     1
   shell:
@@ -239,7 +239,7 @@ rule trinity_final:
   log:
     "logs/trinity_final.log"
   params:
-    memory="200"
+    memory="120"
   threads:
     16
   shell:
@@ -258,7 +258,7 @@ rule rnaspades:
   log:
     "logs/rnaspades.log"
   params:
-    memory="200"
+    memory="120"
   threads:
     16
   shell:

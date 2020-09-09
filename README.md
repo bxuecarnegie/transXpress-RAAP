@@ -1,4 +1,6 @@
-# transXpress-snakemake
+# transXpress-RAAP
+transXpress-RAAP (RNA-Seq Assembly and Annotation Pipeline) is a fork that includes further clustering, filtering and annotation processes.
+
 transXpress: a [Snakemake](https://snakemake.readthedocs.io/en/stable/) pipeline for rapid de novo transcriptome assembly and annotation
 
 Also see our sister project: [transXpress-nextflow](https://github.com/transXpress/transXpress-nextflow)
@@ -25,8 +27,11 @@ transXpress requires:
 * edgeR (install via conda)
 * seqkit (install via conda)
 * wget (install via conda)
+* corset (install via conda)
+* cd-hit (install via conda)
 * python 3.6, numpy 1.14, scipy 1.0, theano 1.0.1, six 1.11 (required for deeploc, install via conda)
-* [deeploc](http://www.cbs.dtu.dk/cgi-bin/nph-sw_request?deeploc)
+* [deeploc](https://services.healthtech.dtu.dk/cgi-bin/sw_request)
+* [Lace](https://github.com/Oshlack/Lace/releases) (version via conda is too old)
 * basic Linux utitilies: split, awk, cut, gzip
 
 ## Installation
@@ -35,8 +40,9 @@ transXpress requires:
 
 2. Setup conda environment (optional):
 ~~~~
-conda create --name transxpress
-conda activate transxpress
+cd /PATH/TO/ENVs
+conda create --prefix transxpress
+conda activate /PATH/TO/ENVs/transxpress
 ~~~~
 
 3. Install snakemake and other dependencies:  
@@ -44,10 +50,10 @@ conda activate transxpress
 conda config --add channels bioconda
 conda config --add channels conda-forge
 conda config --set channel_priority false
-conda install snakemake fastqc trimmomatic trinity spades transdecoder biopython samtools bowtie2 infernal hmmer kallisto blast r bioconductor-edger seqkit wget python=3.6 numpy=1.14 scipy=1.0 theano=1.0.1 six==1.11 parallel
+conda install snakemake fastqc trimmomatic trinity spades transdecoder biopython samtools bowtie2 infernal hmmer kallisto blast r bioconductor-edger seqkit wget python=3.6 numpy=1.14 scipy=1.0 theano=1.0.1 six==1.11 parallel corset cd-hit
 ~~~~
 4. Install deeploc:
-      * Download deeploc from http://www.cbs.dtu.dk/cgi-bin/nph-sw_request?deeploc
+      * Download deeploc from https://services.healthtech.dtu.dk/cgi-bin/sw_request
       * Install deeploc: 
         ~~~~
          python setup.py install
@@ -58,7 +64,8 @@ conda install snakemake fastqc trimmomatic trinity spades transdecoder biopython
 pip install tmhmm.py
 ~~~~
 
-6. Checkout the transXpress code into the folder in which you will be performing your assembly:
+6. Install 
+7. Checkout the transXpress code into the folder in which you will be performing your assembly:
 ~~~~
 git clone https://github.com/transXpress/transXpress-snakemake.git .
 ~~~~
